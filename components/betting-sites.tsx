@@ -47,7 +47,7 @@ export function BettingSites() {
                           <Image
                             src={site.logo || "/placeholder.svg"}
                             alt={`${site.name} logo`}
-                            width={120}
+                            width={130}
                             height={60}
                             className="mx-auto"
                           />
