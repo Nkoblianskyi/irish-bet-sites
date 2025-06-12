@@ -78,56 +78,54 @@ const WelcomeModal = () => {
         <div className="p-4 lg:p-6">
           <div className="space-y-3">
             {topSites.map((site, index) => (
-              <Link
+              <div
                 key={site.id}
-                href={site.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-                onClick={closeModal}
+                className="relative bg-gradient-to-r from-gray-50 to-emerald-50 rounded-xl p-3 lg:p-4 border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all duration-200"
               >
-                <div className="relative bg-gradient-to-r from-gray-50 to-emerald-50 rounded-xl p-3 lg:p-4 border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all duration-200 group-hover:scale-[1.01]">
-                  {/* Компактний rank badge */}
-                  <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md">
-                    {index + 1}
-                  </div>
-
-                  <div className="flex items-center gap-3 pl-2">
-                    {/* Компактне лого */}
-                    <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-1.5 lg:p-2">
-                      <Image
-                        src={site.logo || "/placeholder.svg"}
-                        alt={`${site.name} logo`}
-                        width={80}
-                        height={40}
-                        className="max-w-full max-h-full object-contain"
-                      />
-                    </div>
-
-                    {/* Компактний контент */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-bold text-gray-900 text-sm lg:text-base truncate">{site.name}</h3>
-                        <div className="flex items-center gap-1">
-                          <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                          <span className="text-xs font-medium text-gray-600">{site.rating}</span>
-                        </div>
-                      </div>
-
-                      <div className="bg-emerald-100 rounded-md px-2 py-1">
-                        <p className="text-xs lg:text-sm font-semibold text-emerald-800 truncate">{site.bonus}</p>
-                      </div>
-                    </div>
-
-                    {/* Компактна стрілка */}
-                    <div className="flex-shrink-0 w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center group-hover:bg-emerald-700 transition-colors">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
+                {/* Компактний rank badge */}
+                <div className="absolute -top-1 -left-1 w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md">
+                  {index + 1}
                 </div>
-              </Link>
+
+                <div className="flex items-center gap-3 pl-2">
+                  {/* Компактне лого */}
+                  <div className="flex-shrink-0 w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-1.5 lg:p-2">
+                    <Image
+                      src={site.logo || "/placeholder.svg"}
+                      alt={`${site.name} logo`}
+                      width={60}
+                      height={40}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Компактний контент */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-bold text-gray-900 text-sm lg:text-base truncate">{site.name}</h3>
+                      <div className="flex items-center gap-1">
+                        <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                        <span className="text-xs font-medium text-gray-600">{site.rating}</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-emerald-100 rounded-md px-2 py-1">
+                      <p className="text-xs lg:text-sm font-semibold text-emerald-800 truncate">{site.bonus}</p>
+                    </div>
+                  </div>
+
+                  {/* Кнопка "Claim Bonus" замість стрілки */}
+                  <Link
+                    href={site.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeModal}
+                    className="flex-shrink-0 bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-medium px-2 py-1 sm:px-3 sm:py-1.5 rounded-md transition-colors whitespace-nowrap"
+                  >
+                    {site.cta}
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
 
