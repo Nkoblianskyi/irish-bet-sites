@@ -29,7 +29,7 @@ export function Header() {
           {/* Right Side - Badges */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center space-x-2 bg-emerald-100 px-3 py-1 rounded-full">
-              <span className="text-2xl">🇮🇪</span>
+              <Image src="/flag.png" alt="Flag" width={24} height={24} className="w-6 h-6 sm:w-8 sm:h-8" />
               <span className="text-sm font-medium text-emerald-800">Irish Licensed</span>
             </div>
             <div className="bg-orange-100 px-3 py-1 rounded-full">
