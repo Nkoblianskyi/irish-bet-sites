@@ -68,7 +68,7 @@ const WelcomeModal = () => {
           <div className="relative z-10 pr-8">
             <div className="flex items-center gap-2 mb-1">
               <Trophy className="w-5 h-5 text-yellow-300" />
-              <span className="text-xs font-medium opacity-90">🇮🇪 Ireland's Top 3</span>
+              <span className="text-xs font-medium opacity-90">Ireland's Top</span>
             </div>
             <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">Best Betting Sites</h2>
           </div>
