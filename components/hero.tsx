@@ -1,10 +1,20 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Calendar, TrendingUp, AlertTriangle } from "lucide-react"
 
 export function Hero() {
+  const [reviewsCount, setReviewsCount] = useState(25) // Фіксоване початкове значення
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+    // Генеруємо випадкове число тільки на клієнті
+    setReviewsCount(Math.floor(Math.random() * 50) + 20)
+  }, [])
+
   return (
-    <section className="relative min-h-[275px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[280px] flex items-center justify-center overflow-hidden">
       {/* Stadium Lights Background */}
       <div className="absolute inset-0 stadium-lights opacity-20"></div>
 
@@ -37,10 +47,12 @@ export function Hero() {
               <div className="text-center">
                 <p className="text-xs sm:text-sm font-bold">
                   Updated{" "}
-                  {new Date().toLocaleDateString("en-IE", {
-                    day: "numeric",
-                    month: "short",
-                  })}
+                  {isClient
+                    ? new Date().toLocaleDateString("en-IE", {
+                      day: "numeric",
+                      month: "short",
+                    })
+                    : "Today"}
                 </p>
               </div>
             </div>
@@ -51,7 +63,7 @@ export function Hero() {
             <div className="flex items-center gap-2 text-white">
               <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
               <div className="text-center">
-                <p className="text-xs sm:text-sm font-bold">+{Math.floor(Math.random() * 50) + 20} Reviews</p>
+                <p className="text-xs sm:text-sm font-bold">+{reviewsCount} Reviews</p>
               </div>
             </div>
           </div>
